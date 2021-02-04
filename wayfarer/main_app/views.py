@@ -14,6 +14,9 @@ def email(request):
 def home(request):
     return render(request, 'home.html')
 
+def textscroll(request):
+    return render(request, 'clues/textscroll.html')
+
 def login(request):
     if request.method == 'POST':
         username_form = request.POST['username']
