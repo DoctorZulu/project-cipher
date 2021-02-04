@@ -10,7 +10,7 @@ Project-Cipher
 3. The game is intended to be a much shorter and smaller in scope version of the mysterious Cicada 3301 experience. Users will have to register/sign up which will fulfill CRUD functionality. Their "profile" page will track progress in the game and will be public to other users who are interested in racing to the finish.
 
 
-<<<<<<< HEAD
+
 ###--Icebox--
 
 1. Additional steps and features will be added as time permits. The base plan is to have a main website where the bulk of the gameplay will occur. There will be one additional website that I set up that furthers the narrative. Other assets such as twitter and google maps may be used as well.
@@ -28,5 +28,4 @@ Project-Cipher
 <img src= "Wire-Frame/project-cipher - Puzzle (5).png">
 
 <img src= "Wire-Frame/project-cipher - Success (1).png">
-=======
->>>>>>> da53f85fd7655a20841d96e46f1e9df7b8197cf6
+
