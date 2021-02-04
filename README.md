@@ -9,4 +9,4 @@ Project-Cipher
 
 3. The game is intended to be a much shorter and smaller in scope version of the mysterious Cicada 3301 experience. Users will have to register/sign up which will fulfill CRUD functionality. Their "profile" page will track progress in the game and will be public to other users who are interested in racing to the finish.
 
-https://github.com/DoctorZulu/project-cipher/blob/main/Wire-Frame/project-cipher%20-%20Landing%20Page_Fake%20Admin%20panel%20login_register%20(1).png?raw=true
+[https://github.com/DoctorZulu/project-cipher/blob/main/Wire-Frame/project-cipher%20-%20Landing%20Page_Fake%20Admin%20panel%20login_register%20(1).png?raw=true]
