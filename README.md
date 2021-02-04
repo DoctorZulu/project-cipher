@@ -9,6 +9,18 @@ Project-Cipher
 
 3. The game is intended to be a much shorter and smaller in scope version of the mysterious Cicada 3301 experience. Users will have to register/sign up which will fulfill CRUD functionality. Their "profile" page will track progress in the game and will be public to other users who are interested in racing to the finish.
 
+###--Stack--
+
+####--Main website--
+1. Django
+2. PostgreSQL
+3. Python
+4. Semantic UI
+
+####--Aux site(s)
+1. Node
+2. Express
+3. Javascript
 
 
 ###--Icebox--
@@ -28,4 +40,3 @@ Project-Cipher
 <img src= "Wire-Frame/project-cipher - Puzzle (5).png">
 
 <img src= "Wire-Frame/project-cipher - Success (1).png">
-
