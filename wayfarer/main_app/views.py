@@ -76,3 +76,24 @@ def signup(request):
     else:
         # if not post send form 
         return render(request, 'home.html')
+
+# Route to handle guessing of keyphrases. A correct guess will further the user's progress 
+def guess(request):
+    if request.method == 'POST':
+        #handling variables
+        guess = request.POST['keyphrase']
+        puzzle1 = Puzzle.objects.get(id=1)
+        puzzle2 = Puzzle.objects.get(id=2)
+        puzzle3 = Puzzle.objects.get(id=3)
+        puzzle4 = Puzzle.objects.get(id=4)
+        #as long as an answer is provided, compare against all puzzles' keyphrase
+        if guess == puzzle1.keyphrase:
+            
+            #redirect
+            profile = Profile.objects.get(user=user)
+            return redirect('profile', profile_id=profile.id)
+        else:
+            context = {'error':'Invalid Credentials'}
+            return render(request, 'home.html', context)
+    else:
+        return render(request, 'profile/show.html')
