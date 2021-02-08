@@ -116,12 +116,13 @@
           <a class="toc item">
             <i class="sidebar icon"></i>
           </a>
-          <a href="/" class="fas fa-poo-storm" id="logo-nav"></a>
+          <a href="/" src="fas fa-poo-storm" id="logo-nav"></a>
 
           <a href="/" class="item">Home</a>
 
           <div class="right item">
             {% if user.is_authenticated%}
+            <a href="{% url 'logout' %}" id="logout-btn">Log out</a>
             <a class= "ui inverted button" href="{% url 'profile' profile_id=profile.id %}" id="admin">ADMIN</a>
             {% endif %}
 

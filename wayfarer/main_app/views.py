@@ -17,6 +17,10 @@ def email(request):
 def home(request):
     return render(request, 'home.html')
 
+def logout(request):
+    auth.logout(request)
+    return redirect('email')
+
 
 def textscroll(request):
     return render(request, 'clues/textscroll.html')
@@ -32,12 +36,12 @@ def login(request):
             auth.login(request, user)
             #redirect
             profile = Profile.objects.get(user=user)
-            return redirect('profile', profile_id=profile.id)
+            return redirect('home')
         else:
             context = {'error':'Invalid Credentials'}
             return render(request, 'home.html', context)
     else:
-        return render(request, 'profile/show.html')
+        return render(request, 'home.html')
 
 def logout(request):
     auth.logout(request)
