@@ -6,8 +6,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wayfarer</title>
-  {% comment %} Font Awesome W Icon
-  https://fontawesome.com/icons/weebly?style=brands {% endcomment %}
   <script src="https://kit.fontawesome.com/6f4b5c5a8a.js" crossorigin="anonymous"></script>
 
   {% comment %} Semantic UI CSS {% endcomment %}
@@ -20,10 +18,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.css"
     integrity="sha512-CPLGe+O/BzgzHJKpdBXUuewmlxhlEfQ00zuYg1vcGCjOo88mqMeO1qa8q397ifxm18D12Go8OF7A42CjOKEl/g=="
     crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-  {% comment %} SWIPER CDN {% endcomment %}
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 
   <style type="text/css">
     .hidden.menu {
@@ -97,12 +94,13 @@
 
 
 
+
     });
   </script>
 </head>
 
-<body id="body" class="pushable" data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed=""
-  cz-shortcut-listen="true">
+<!-- <body id="body" class="pushable" data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed=""
+  cz-shortcut-listen="true"> -->
 
 
 
@@ -123,42 +121,14 @@
           <a href="/" class="item">Home</a>
 
           <div class="right item">
-
-            <a class="ui inverted button" id="dont_modal">DON'T CLICK</a>
+            {% if user.is_authenticated%}
+            <a class= "ui inverted button" href="{% url 'profile' profile_id=profile.id %}" id="admin">ADMIN</a>
+            {% endif %}
 
           </div>
         </div>
       </div>
-      <div class="ui modal dont"> <i class="close icon"></i>
-        <div class="header">Login</div>
-        <div class="content">
-          <form method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-            <div class="ui equal width form error">
-              <div class="fields">
-                <div class="field">
-                  <label>Username</label>
-                  <input type="text" placeholder="Username" name="username">
-                </div>
-                <div class="field">
-                  <label>Password</label>
-                  <input type="password" name="password">
-                </div>
-              </div>
-            </div>
-            {% if error_message %}
-            <div class="ui error message">
-              <div class="header">Action Forbidden</div>
-              <p>{{error_message}}</p>
-            </div>
-            {% endif %}
-            <div class="actions">
-              <input type="submit" class="ui inverted button" value="Login" />
-              <input type="hidden" name="next" value="{{ next }}" />
-            </div>
-          </form>
-        </div>
-      </div>
+     
 
       {% comment %} ===== BLOCK CONTENT ===== {% endcomment %}
       {% block content %}

@@ -13,8 +13,10 @@ from .forms import Post_Form
 def email(request):
     return render(request, 'email.html')
 
+@login_required
 def home(request):
     return render(request, 'home.html')
+
 
 def textscroll(request):
     return render(request, 'clues/textscroll.html')
@@ -109,21 +111,9 @@ def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
     return redirect('profile', profile_id=profile.id)
 
-def profile(request):
-    if request.method == 'POST':
-        profile_form = Profile_Form(request.POST)
-        if profile_form.is_valid():
-            profile = profile_form.save(commit=False)
-            profile.user = request.user
-            profile.save()
-            return redirect('profile')
+def profile(request, profile_id):
+    #found_profile = Profile.objects.get(id=user_id)
+    profile = Profile.objects.get(id=profile_id)
+    context = {'profile': profile}
+    return render(request, 'profile/show.html', context)
 
-    user = User.objects.get(id=request.user.id)
-    if Profile.objects.filter(user_id=request.user.id):
-        profile = Profile.objects.get(user_id=request.user.id)
-    else:
-        profile = ""
-    profile_form = Profile_Form()
-    posts = Post.objects.filter(user=request.user)
-    context = {'profile': profile, 'profile_form': profile_form, 'user': user, 'posts': posts}
-    return render(request, 'profile.html', context)

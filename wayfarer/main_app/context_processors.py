@@ -4,13 +4,8 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .models import Puzzle, Profile
+from .models import Profile, Post
 
-def add_puzzles(request):
-    puzzles = Puzzle.objects.all()
-    return{
-        'puzzles' : puzzles
-    }
 
 def add_profile(request):
     if request.user.is_authenticated:
@@ -25,4 +20,11 @@ def add_profile(request):
         return{
             
         }
+        
+def add_posts(request):
+    posts = Post.objects.all()
+    return{
+        'posts' : posts
+    }
+
 
