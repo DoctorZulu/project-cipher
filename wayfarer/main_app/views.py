@@ -5,7 +5,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
-from .models import Puzzle
+from .models import Profile, User, Post
+from .forms import Post_Form
+
 
 
 def email(request):
@@ -47,10 +49,10 @@ def signup(request):
         last_name = request.POST['last_name']
         username_form = request.POST['username']
         email_form = request.POST['email']
-        password = request.POST['password']
+        password1 = request.POST['password1']
         password2 = request.POST['password2']
         # validate that passwords match
-        if password == password2:
+        if password1 == password2:
         # check if username exists in db
             if User.objects.filter(username=username_form).exists():
                 context = {'error': 'Username is already taken.'}
@@ -64,12 +66,12 @@ def signup(request):
                     user = User.objects.create_user(
                     username=username_form, 
                     email=email_form, 
-                    password=password, 
+                    password=password1, 
                     first_name=first_name, 
                     last_name=last_name)
                     user.save()
                     auth.login(request, user)
-                    return redirect('profile', profile_id=profile.id)
+                    return redirect('home')
         else:
             context = {'error':'Passwords do not match'}
             return render(request, 'home.html', context)
@@ -77,23 +79,51 @@ def signup(request):
         # if not post send form 
         return render(request, 'home.html')
 
-# Route to handle guessing of keyphrases. A correct guess will further the user's progress 
-def guess(request):
+# Route to handle creation of profile posts
+def post_create(request):
+    success_message = ''
+    if request.method == 'POST': 
+        Post.objects.create(
+            title = request.POST['title'],
+            body = request.POST['body'],
+            user = User.objects.get(id=request.user.id),
+        )
+        posts = Post.objects.filter(id=request.user.id)
+        success_message = 'Post successful!'
+        context = {'posts': posts, 'message': success_message}
+        return render(request,'profile', context)
+
+
+
+def post_edit(request, post_id):
+    post = Post.objects.get(id=post_id)
     if request.method == 'POST':
-        #handling variables
-        guess = request.POST['keyphrase']
-        puzzle1 = Puzzle.objects.get(id=1)
-        puzzle2 = Puzzle.objects.get(id=2)
-        puzzle3 = Puzzle.objects.get(id=3)
-        puzzle4 = Puzzle.objects.get(id=4)
-        #as long as an answer is provided, compare against all puzzles' keyphrase
-        if guess == puzzle1.keyphrase:
-            
-            #redirect
-            profile = Profile.objects.get(user=user)
-            return redirect('profile', profile_id=profile.id)
-        else:
-            context = {'error':'Invalid Credentials'}
-            return render(request, 'home.html', context)
+        post.title = request.POST['title']
+        post.body = request.POST['body']
+        post.save()
     else:
-        return render(request, 'profile/show.html')
+        print("Error")
+    return redirect('profile', profile_id=profile.id)
+
+def post_delete(request, post_id):
+    Post.objects.get(id=post_id).delete()
+    return redirect('profile', profile_id=profile.id)
+
+def profile(request):
+    if request.method == 'POST':
+        profile_form = Profile_Form(request.POST)
+        if profile_form.is_valid():
+            profile = profile_form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect('profile')
+
+    user = User.objects.get(id=request.user.id)
+    if Profile.objects.filter(user_id=request.user.id):
+        profile = Profile.objects.get(user_id=request.user.id)
+    else:
+        profile = ""
+    profile_form = Profile_Form()
+    posts = Post.objects.filter(user=request.user)
+    context = {'profile': profile, 'profile_form': profile_form, 'user': user, 'posts': posts}
+    return render(request, 'profile.html', context)

@@ -1,3 +1,6 @@
+
+/* Inspired by Umar Farooq Hacking Text/Code and other Umar Farooq projects */
+
 $(document).ready(function() {
 	const textArray = textString.split('');
 	const textElem = $('.hacking-animation__text');
@@ -21,10 +24,10 @@ $(document).ready(function() {
 
 var textString = `.
 .
-///cqrCipher Console///
+///Доброе утро!///
     <anon@crack>:::cqrCipher
-           Initial sequence instancedistrue unitqqb9.02.10.21
-           ...Connecting...NO ANSWER
+           Initial sequence instancedistrue .02.10.21
+           ...Establishing connection...NO ANSWER
 ...
 ...
 //Bootstrapping Code\\\\
@@ -32,7 +35,7 @@ var textString = `.
             (**Connection Successful**)....
                     READ ...//DATA LINKING Victim...
 {enter. your. Name.}/// -- \\\\Wayfarer\\\\
-  <M> Connecting Victim..:":":":
+  <M> Connecting network..:":":":
   ff
 
 <See...>

@@ -38,42 +38,49 @@
     <script>
         $(document).ready(function () {
 
-          
-  
-  
-          $("#login_modal").click(function () {
-            $(".ui.modal.login").modal("show");
-          });
-  
-          $("#hide_modal").click(function () {
-            $(".ui.modal.login").modal("hide");
-          });
-  
-          $("#signup_modal").click(function () {
-            $(".ui.modal.signup").modal("show");
-          });
-  
+
+
+
+            $("#login_modal").click(function () {
+                $(".ui.modal.login").modal("show");
+            });
+
+            $("#hide_modal").click(function () {
+                $(".ui.modal.login").modal("hide");
+            });
+
+            $("#signup_modal").click(function () {
+                $(".ui.modal.signup").modal("show");
+            });
+            $('.message .close')
+                .on('click', function () {
+                    $(this)
+                        .closest('.message')
+                        .transition('fade');
+                });
+
         });
-      </script>
+    </script>
 
 <body>
 
-    <div class="ui huge message">
+
+    <div class="ui negative message transition hidden">
         <i class="close icon"></i>
         <div class="header">
             Importance: HIGH
         </div>
         <p>User, we have a huge issue! We think Susan in HR clicked another phishing email. We have lost complete access
-            to our website, log into the admin network ASAP and gain back control of the website!</p>
+            to our website, log into the admin network ASAP and gain back control of the website!
+        </p>
     </div>
 
-    {% comment %} ==== MODAL CONTENT ==== {% endcomment %}
+    {% comment %} Login Modal {% endcomment %}
     <div class="ui modal login"> <i class="close icon"></i>
         <div class="header">Login</div>
         <div class="content">
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
-                {% comment %} NEW SEMANTIC FORM {% endcomment %}
                 <div class="ui equal width form error">
                     <div class="fields">
                         <div class="field">
@@ -107,10 +114,10 @@
     <div class="ui modal signup"> <i class="close icon"></i>
         <div class="header">Sign Up</div>
         <div class="content">
-            {% comment %} NEW FORM {% endcomment %}
-            <form method="POST" action="{% url 'home' %}">
+
+            <form method="POST" action="{% url 'signup' %}">
                 {% csrf_token %}
-                {% comment %} NEW SEMANTIC FORM {% endcomment %}
+
                 <div class="ui equal width form">
 
                     <div class="field">
@@ -129,11 +136,7 @@
                     </div>
                     <div class="field">
                         <label>Email</label>
-                        <input type="email" name="email" placeholder="TravelPro@Wayfarer.com" required>
-                    </div>
-                    <div class="field">
-                        <label>Current City</label>
-                        <input type="text" name="current_city" placeholder="Seattle" required>
+                        <input type="email" name="email" placeholder="User@Wayfarer.com" required>
                     </div>
                     <div class="ui message">
                         <div class="header">Password requirements</div>
@@ -163,7 +166,6 @@
                 {% endif %}
                 <div class="actions">
                     <input type="submit" class="ui inverted button" value="Sign Up" />
-                    {% comment %} REVIEW: Cancel button to close modal/redirect to SAME page {% endcomment %}
                     {% comment %} <div class="ui button" id="hide_modal">Cancel</div> {% endcomment %}
                     <input type="hidden" name="next" value="{{ next }}" />
 

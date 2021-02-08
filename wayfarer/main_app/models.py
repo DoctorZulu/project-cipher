@@ -1,15 +1,32 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 import datetime
 
-class Puzzle(models.Model):
-    name = models.CharField(max_length = 50)
-    date = models.DateTimeField("Solved On", default = datetime.datetime.now)
+class Post(models.Model):
+    title = models.CharField(max_length = 200)
+    body = models.CharField(max_length = 560)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    keyphrase = models.CharField(max_length = 100)
+    date = models.DateTimeField("Posted On", default= datetime.datetime.now)
+
 
     def __str__(self):
-        return self.name
-    
+        return self.title
+
     class Meta:
-        ordering = ['date']
+        ordering = ['-date']
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True,)
+    posts = models.CharField(max_length = 10)
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+

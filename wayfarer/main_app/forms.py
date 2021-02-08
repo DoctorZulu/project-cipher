@@ -1,8 +1,10 @@
 from django.forms import ModelForm
-from .models import Puzzle
+from .models import Post
+from django.contrib.auth.forms import forms
 
 class Post_Form(ModelForm):
     class Meta:
-      model = Puzzle
-      labels = {'keyphrase': "Keyphrase"}
-      fields = ['keyphrase']
+      model = Post 
+      labels = {'title': "Post Title"}
+      fields = ['title','body']
+

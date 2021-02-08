@@ -1,162 +1,171 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wayfarer</title>
-    {% comment %} Font Awesome W Icon
-    https://fontawesome.com/icons/weebly?style=brands {% endcomment %}
-    <script
-      src="https://kit.fontawesome.com/6f4b5c5a8a.js"
-      crossorigin="anonymous"
-    ></script>
 
-    {% comment %} Semantic UI CSS {% endcomment %}
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/menu.min.css"
-      integrity="sha512-ox96Q1iqhM5TvdY4gVbz6FXoDwsR/Q8jq15kWReQNefC+uUGCv+pkMbLOtr176K3+bfrQQv6gTDAvhL1PUw2YQ=="
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.css"
-      integrity="sha512-CPLGe+O/BzgzHJKpdBXUuewmlxhlEfQ00zuYg1vcGCjOo88mqMeO1qa8q397ifxm18D12Go8OF7A42CjOKEl/g=="
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wayfarer</title>
+  {% comment %} Font Awesome W Icon
+  https://fontawesome.com/icons/weebly?style=brands {% endcomment %}
+  <script src="https://kit.fontawesome.com/6f4b5c5a8a.js" crossorigin="anonymous"></script>
 
-    {% comment %} SWIPER CDN {% endcomment %}
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+  {% comment %} Semantic UI CSS {% endcomment %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/menu.min.css"
+    integrity="sha512-ox96Q1iqhM5TvdY4gVbz6FXoDwsR/Q8jq15kWReQNefC+uUGCv+pkMbLOtr176K3+bfrQQv6gTDAvhL1PUw2YQ=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.css"
+    integrity="sha512-CPLGe+O/BzgzHJKpdBXUuewmlxhlEfQ00zuYg1vcGCjOo88mqMeO1qa8q397ifxm18D12Go8OF7A42CjOKEl/g=="
+    crossorigin="anonymous" />
 
-    <style type="text/css">
-      .hidden.menu {
+  {% comment %} SWIPER CDN {% endcomment %}
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <style type="text/css">
+    .hidden.menu {
+      display: none;
+    }
+
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
         display: none;
       }
 
-
-      @media only screen and (max-width: 700px) {
-        .ui.fixed.menu {
-          display: none !important;
-        }
-        .secondary.pointing.menu .item,
-        .secondary.pointing.menu .menu {
-          display: none;
-        }
-        .secondary.pointing.menu .toc.item {
-          display: block;
-        }
-        .masthead.segment {
-          min-height: 350px;
-        }
-        .masthead h1.ui.header {
-          font-size: 2em;
-          margin-top: 1.5em;
-        }
-        .masthead h2 {
-          margin-top: 0.5em;
-          font-size: 1.5em;
-        }
+      .secondary.pointing.menu .toc.item {
+        display: block;
       }
-    </style>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/style.css' %}"
-    />
-    <link
-      href="{% static 'css/glitch.scss' %}"
-      />
 
-    {% comment %} jQuery js {% endcomment %}
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"
-    ></script>
-    {% comment %} Semantic UI js {% endcomment %}
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
-      integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.js"
-      integrity="sha512-aAW/TaSuYfyjTcMsaYP67Dwe0vI5d7ej9X7NJBPkhafB+D5kx57flRNo8+tOXWA0Gcq0MBmhPatrvn1YwvH9gQ=="
-      crossorigin="anonymous"
-    ></script>
+      .masthead.segment {
+        min-height: 350px;
+      }
 
-    {% comment %} Visibility js {% endcomment %}
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/visibility.min.js"
-      integrity="sha512-pcX/bEmbHWxW0fvRU70A6UqVXm0Z1tBJTwSLHE3hE8AAhG4hDL8R19Oho4DmdCNNYrgDSyHhH+ALNg5d5SFxxw=="
-      crossorigin="anonymous"
-    ></script>
-    
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
 
-    <script>
-        $(document).ready(function () {
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link href="{% static 'css/glitch.scss' %}" />
 
-  
-          $("#hide_modal").click(function () {
-            $(".ui.modal.login").modal("hide");
-          });
-  
+  {% comment %} jQuery js {% endcomment %}
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  {% comment %} Semantic UI js {% endcomment %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.js"
+    integrity="sha512-aAW/TaSuYfyjTcMsaYP67Dwe0vI5d7ej9X7NJBPkhafB+D5kx57flRNo8+tOXWA0Gcq0MBmhPatrvn1YwvH9gQ=="
+    crossorigin="anonymous"></script>
 
-  
-        });
-      </script>
-  </head>
+  {% comment %} Visibility js {% endcomment %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/visibility.min.js"
+    integrity="sha512-pcX/bEmbHWxW0fvRU70A6UqVXm0Z1tBJTwSLHE3hE8AAhG4hDL8R19Oho4DmdCNNYrgDSyHhH+ALNg5d5SFxxw=="
+    crossorigin="anonymous"></script>
 
-  <body
-    id="body"
-    class="pushable"
-    data-new-gr-c-s-check-loaded="14.991.0"
-    data-gr-ext-installed=""
-    cz-shortcut-listen="true"
-  >
-  
+
+  <script>
+    $(document).ready(function () {
+
+
+      $("#hide_modal").click(function () {
+        $(".ui.modal.login").modal("hide");
+      });
+      $(".delete_modal").click(function () {
+        $("#modal-" + this.id).modal("show");
+      });
+
+      $("#post_modal").click(function () {
+        $(".ui.modal.post").modal("show");
+      });
 
 
 
-{% comment %} ==== NAV CONTENT ==== {% endcomment %}
+    });
+  </script>
+</head>
+
+<body id="body" class="pushable" data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed=""
+  cz-shortcut-listen="true">
 
 
-    <!-- MAIN NAV MENU Contents -->
-    <div class="pusher">
-      <div id="masthead" class="ui inverted vertical masthead center aligned segment">
-        <div id="navbar" class="ui container">
-          <div class="ui large secondary inverted pointing menu">
-            <a class="toc item">
-              <i class="sidebar icon"></i>
-            </a>
-            <a href="/" class="fab fa-weebly" id="logo-nav"></a>
 
-            <a href="/" class="item">Home</a>
 
-            <div class="right item">
-              
-              <a class="ui inverted button" id="login_modal">DON'T CLICK</a>
-              
-            </div>
+  {% comment %} ==== NAV CONTENT ==== {% endcomment %}
+
+
+  <!-- MAIN NAV MENU Contents -->
+  <div class="pusher">
+    <div id="masthead" class="ui inverted vertical masthead center aligned segment">
+      <div id="navbar" class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+          <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a>
+          <a href="/" class="fas fa-poo-storm" id="logo-nav"></a>
+
+          <a href="/" class="item">Home</a>
+
+          <div class="right item">
+
+            <a class="ui inverted button" id="dont_modal">DON'T CLICK</a>
+
           </div>
+        </div>
+      </div>
+      <div class="ui modal dont"> <i class="close icon"></i>
+        <div class="header">Login</div>
+        <div class="content">
+          <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="ui equal width form error">
+              <div class="fields">
+                <div class="field">
+                  <label>Username</label>
+                  <input type="text" placeholder="Username" name="username">
+                </div>
+                <div class="field">
+                  <label>Password</label>
+                  <input type="password" name="password">
+                </div>
+              </div>
+            </div>
+            {% if error_message %}
+            <div class="ui error message">
+              <div class="header">Action Forbidden</div>
+              <p>{{error_message}}</p>
+            </div>
+            {% endif %}
+            <div class="actions">
+              <input type="submit" class="ui inverted button" value="Login" />
+              <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+          </form>
+        </div>
       </div>
 
-      {% comment %} ===== BLOCK CONTENT ===== {% endcomment %} 
-      {% block content %} 
-      {% endblock %} 
-      
+      {% comment %} ===== BLOCK CONTENT ===== {% endcomment %}
+      {% block content %}
+      {% endblock %}
+
     </div>
-  </body>
-  <script src="{% static 'scripts/app.js' %}"></script>
+</body>
+<script src="{% static 'scripts/app.js' %}"></script>
+
 </html>
