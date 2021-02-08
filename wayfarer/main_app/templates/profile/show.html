@@ -21,33 +21,48 @@
 
   <div id="right-box" class="nine wide computer nine wide tablet six wide mobile column">
     <h3 class="ui center aligned header">Posts</h3>
-    {% for post in posts %}
-    <div class="ui segment">
-      <a href="{% url 'post_show' post_id=post.id %}">
-        <p>{{ post.title }}</p>
-      </a>
+      <a id="post_modal" class="ui inverted button">Add Post</a>
+      {% for post in posts %}
+      <div class="ui card">
+        <div class="content">
+          {% if user == post.user %}
+          <i
+            id="{{post.id}}"
+            class="right floated far fa-window-close delete_modal"
+          ></i>
+          {% endif %}
+          <div class="header">
+          </div>
+          <div class="description">
+            <p>{{ post.body }}</p>
+            <div class="extra content">
+              <div class="right floated author">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} DELETE MODAL {% endcomment %}
+      <div id="modal-{{ post.id }}" class="ui modal delete">
+        <i class="close icon"></i>
+        <div class="header">
+          Are you sure you want to delete: {{post.title}}?
+        </div>
+        <div class="content">
+          <a
+            href="{% url 'post_delete' post_id=post.id %}"
+            class="ui inverted button"
+            >Confirm Delete</a
+          >
+          <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+      </div>
+
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </div>
-
-{% comment %} DELETE MODAL {% endcomment %}
-<div id="modal-{{ post.id }}" class="ui modal delete">
-  <i class="close icon"></i>
-  <div class="header">
-    Are you sure you want to delete: {{post.title}}?
-  </div>
-  <div class="content">
-    <a
-      href="{% url 'post_delete' post_id=post.id %}"
-      class="ui inverted button"
-      >Confirm Delete</a
-    >
-    <input type="hidden" name="next" value="{{ next }}" />
-  </div>
-</div>
-
-
 
 {% comment %} POST MODAL {% endcomment %}
 <div class="ui modal post">
@@ -63,7 +78,7 @@
         </div>
         <div class="field">
           <label>Content</label>
-          <textarea cols="40" rows="10" name="content" required></textarea>
+          <textarea cols="40" rows="10" name="body" required></textarea>
         </div>
       </div>
       {% if error_message %}
@@ -77,8 +92,6 @@
       </div>
     </form>
   </div>
-</div>
-
 </div>
 
 {% endblock %}
