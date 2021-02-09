@@ -113,9 +113,7 @@ a:active {
   }
 }
 
-.topics {
-  background-color: #fdfdfd !important;
-}
+
 
 #wayfarer-title {
   margin-bottom: 0 !important;
@@ -217,4 +215,15 @@ a:active {
 .text {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.buttoncontainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+#logout-btn {
+  color: #873cdd;
+  margin-right: 20px;
 }

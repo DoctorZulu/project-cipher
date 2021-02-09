@@ -65,13 +65,15 @@
 <body>
 
 
-    <div class="ui negative message transition hidden">
+    <div class="ui negative message transition">
         <i class="close icon"></i>
         <div class="header">
             Importance: HIGH
         </div>
         <p>User, we have a huge issue! We think Susan in HR clicked another phishing email. We have lost complete access
-            to our website, log into the admin network ASAP and gain back control of the website!
+            to our website, log into the admin network ASAP. Keep notes in your admin profile so HQ can follow along with your progress. 
+            Share your admin profile with other employees, work together and crack the codes. Trust no one, and keep your personal information secure. 
+            Well, what are you waiting for get our website back!
         </p>
     </div>
 
@@ -100,13 +102,13 @@
                 </div>
                 {% endif %}
                 <div class="actions">
-                    <input type="submit" class="ui inverted button" value="Login" />
+                    <input type="submit" class="ui button" value="Login" />
                     <input type="hidden" name="next" value="{{ next }}" />
                 </div>
             </form>
         </div>
     </div>
-    <div>
+    <div class="buttoncontainer">
         <button class="ui primary basic button" id="login_modal">Login</button>
         <button class="ui secondary basic button" id="signup_modal">Sign Up</button>
     </div>
@@ -165,7 +167,7 @@
                 </div>
                 {% endif %}
                 <div class="actions">
-                    <input type="submit" class="ui inverted button" value="Sign Up" />
+                    <input type="submit" class="ui button" value="Sign Up" />
                     {% comment %} <div class="ui button" id="hide_modal">Cancel</div> {% endcomment %}
                     <input type="hidden" name="next" value="{{ next }}" />
 

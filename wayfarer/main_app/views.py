@@ -86,7 +86,7 @@ def signup(request):
         return render(request, 'home.html')
 
 # Route to handle creation of profile posts
-def post_create(request):
+def post_create(request, profile_id):
     success_message = ''
     if request.method == 'POST': 
         Post.objects.create(
@@ -94,10 +94,11 @@ def post_create(request):
             body = request.POST['body'],
             user = User.objects.get(id=request.user.id),
         )
-        posts = Post.objects.filter(id=request.user.id)
-        success_message = 'Post successful!'
-        context = {'posts': posts, 'message': success_message}
-        return render(request,'profile', context)
+        return redirect('profile', profile_id=profile_id)
+    posts = Post.objects.filter(id=request.user.id)
+    success_message = 'Post successful!'
+    context = {'posts': posts, 'message': success_message}
+    return render(request,'profile', context)
 
 
 
@@ -109,15 +110,31 @@ def post_edit(request, post_id):
         post.save()
     else:
         print("Error")
-    return redirect('profile', profile_id=profile.id)
+    return redirect('profile/show.html', profile_id=profile.id)
 
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
-    return redirect('profile', profile_id=profile.id)
+    return redirect('home')
+
+#def post_delete(request, post_id):
+#    nextvalue = request.GET.get('next')
+#    Post.objects.get(id=post_id).delete()
+#    return redirect(nextvalue) 
 
 def profile(request, profile_id):
     #found_profile = Profile.objects.get(id=user_id)
     profile = Profile.objects.get(id=profile_id)
     context = {'profile': profile}
     return render(request, 'profile/show.html', context)
+
+
+def user_edit(request, profile_id):
+    user = User.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.save()
+    else:
+        print("TEST")
+    return redirect('profile', profile_id=profile_id)
 
