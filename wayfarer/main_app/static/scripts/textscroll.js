@@ -22,74 +22,41 @@ $(document).ready(function() {
 	}, 20);
 });
 
-var textString = `.
+var textString = `........................................................................................
 .
-///Доброе утро!///
-    <anon@crack>:::cqrCipher
-           Initial sequence instancedistrue .02.10.21
-           ...Establishing connection...NO ANSWER
-...
-...
-//Bootstrapping Code\\\\
-            ://EstablishingNetworkProtocols...
-            (**Connection Successful**)....
-                    READ ...//DATA LINKING Victim...
-{enter. your. Name.}/// -- \\\\Wayfarer\\\\
-  <M> Connecting network..:":":":
-  ff
-
-<See...>
-                / if
-         -----sine close--
-         ....hacker@hacking or admin@Cipher;
-                     !!!REturn!!!!404
+- Ах, не говорите мне про Австрию! Я ничего не понимаю, может быть, но
 .
-.
-.
-                        LOOK;; 'AT';;'THE;;'PASSWORD
-HERE .       avbyupxbla
-      \\\\...Victim PAID attention.exe...
-      \\\\%^^attach{Caesar cipher}"'';
-
-///
-//
-             /If (victim === Victor) {
-               var giveUp = true
-             }
-               //or Hide ;
-/
-//
-////STATICVOID...&*&&*&;
-      [sd]
-       {hash?ENCRYPT.}
-
-ZXC..<>Ckfkd<>vkvodkskclc...
-                         { 99852145679841352635
-                        ( B+ HACKING..//YOULOSTALLYOURBITCOIN )
-<\\\\boeie\\\\..www.btchackerscentral.com\\\\
-**(AR)12. (696); (96).ffkeoslk
-             0617513060 <<<<>OKAY
-             {FOntsize}:Hard.. FONTMANAGE 22 //
-             ((open file)) //FOLDER_BOOL;
-                           (port Opened)
-                                (portisnotfound)// F1 }
+Австрия никогда не хотела и не хочет войны. Она предает нас. Россия одна
 ..
-..
-.....
-NORMALIZE BEhavior ?? >> {STRING FOUnd}
-                        BIND ERROR <<DOWNREGION EXPOSED>> ;;' /
-                          0011011011101110110101101
-
-
-/string found
-///BetterHurry
-....MOSTOFscriptUSELESS
-          ///(SHUTDOWN HACKING)
-             {WHIPEDRIVE}
-          whipe not found..
-S1293 K // P 430
+/////должна быть спасительницей Европы. Наш благодетель знает свое высокое
+призвание и будет верен ему. Вот одно, во что я верю. Нашему доброму и 
+...
+чудному государю предстоит величайшая роль в мире, и он так добродетелен и хорош,
+.....//
+что Бог не оставит его, и он исполнит свое призвание задавить гидру революции, 
+/.
+..../
+которая теперь еще ужаснее в лице этого убийцы и злодея.
+HAIL 
+Мы одни должны искупить кровь праведника... 
+////
+На кого нам надеяться, я вас спрашиваю?... 
+Англия с своим коммерческим духом не поймет и не может понять всю высоту души императора Александра. 
+Она отказалась очистить Мальту. Она хочет видеть, ищет заднюю мысль наших действий. 
+Что они сказали Новосильцову?... 
+~..~/
+Ничего. Они не поняли, они не могут понять самоотвержения нашего императора, 
+который ничего не хочет для себя и все хочет для блага мира. 
+И что они обещали? Ничего. И что обещали, и того не будет! 
+Пруссия уж объявила, что Бонапарте непобедим и что вся Европа ничего не может против него... 
+И я не верю ни в одном слове ни Гарденбергу, ни Гаугвицу. 
+Cette fameuse neutralite prussienne, ce n'est qu'un piege. 
+Я верю в одного Бога и в высокую судьбу нашего милого императора. 
+Он спасет
+Европу!...
 ...
 .....
 ...
+ΓΑΙΟΣ ΙΟΥΛΙΟΣ ΚΑΙΣΑΡ + VII
 ....
-...`
+`

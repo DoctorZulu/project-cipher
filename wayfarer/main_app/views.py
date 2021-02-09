@@ -25,6 +25,9 @@ def logout(request):
 def textscroll(request):
     return render(request, 'clues/textscroll.html')
 
+def barcode(request):
+    return render(request, 'clues/barcode.html')
+
 def login(request):
     if request.method == 'POST':
         username_form = request.POST['username']
@@ -45,7 +48,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('home')
+    return redirect('email')
 
 # handles signup modal functionality POST request
 def signup(request):

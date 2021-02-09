@@ -83,6 +83,11 @@ a:active {
 
 #logo-nav {
   padding-right: 15px;
+  color:#873cdd;
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom:0px;
+
 }
 
 #logo-nav:hover {
