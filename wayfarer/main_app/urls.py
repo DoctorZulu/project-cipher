@@ -14,5 +14,7 @@ urlpatterns = [
     path('<int:post_id>/edit/', views.post_edit, name='post_edit'),
     path('<int:post_id>/delete/', views.post_delete, name='post_delete'),
     path('profile/<int:profile_id>/', views.profile, name='profile'),
-    path('profile/<int:profile_id>/user_edit', views.user_edit, name='user_edit')
+    path('profile/<int:profile_id>/user_edit', views.user_edit, name='user_edit'),
+    path('guess/', views.guess_handle, name='guess_handle'),
+    path('do/not/go/gentle', views.success, name='success')
 ]

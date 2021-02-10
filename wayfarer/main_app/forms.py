@@ -8,3 +8,7 @@ class Post_Form(ModelForm):
       labels = {'title': "Post Title"}
       fields = ['title','body']
 
+class Guess_Form(forms.Form):
+      guess = forms.CharField(max_length=20)
+      
+      

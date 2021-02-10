@@ -10,6 +10,19 @@
         </div>
     </div>
     </div>
+
+    <div class="guess">
+    <form action="{% url 'guess_handle' %}" method="POST" id="home-guess">
+        {% csrf_token %}
+        <div class="field guess-box">
+            <label>Passcode</label>
+            <input type="text" placeholder="Passcode" name="guess" required />
+          </div>
+        <button class="ui button" type="submit">Submit</button>
+    </form>
+</div>
+
+
     
     
     

@@ -87,7 +87,12 @@ a:active {
   font-size: 40px;
   margin-top: 20px;
   margin-bottom:0px;
+  margin-left: 20px;
 
+}
+#home {
+  margin-top: 20px;
+  color:#873cdd;
 }
 
 #logo-nav:hover {
@@ -140,6 +145,24 @@ a:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.guess {
+  position: fixed;
+  top: 75%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  display: inline;
+}
+
+.guess-box {
+  padding-bottom: 5px;
+  right: 60%;
+  
+}
+
+#home-guess{
+  display:inline;
 }
 
 

@@ -6,9 +6,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wayfarer</title>
+  <link rel="shortcut icon" type="image/jpg" href="../static/media/Skeletor.gif"/>
   <script src="https://kit.fontawesome.com/6f4b5c5a8a.js" crossorigin="anonymous"></script>
 
-  {% comment %} Semantic UI CSS {% endcomment %}
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
     integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
     crossorigin="anonymous" />
@@ -18,44 +19,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.css"
     integrity="sha512-CPLGe+O/BzgzHJKpdBXUuewmlxhlEfQ00zuYg1vcGCjOo88mqMeO1qa8q397ifxm18D12Go8OF7A42CjOKEl/g=="
     crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 
 
-  <style type="text/css">
-    .hidden.menu {
-      display: none;
-    }
-
-
-    @media only screen and (max-width: 700px) {
-      .ui.fixed.menu {
-        display: none !important;
-      }
-
-      .secondary.pointing.menu .item,
-      .secondary.pointing.menu .menu {
-        display: none;
-      }
-
-      .secondary.pointing.menu .toc.item {
-        display: block;
-      }
-
-      .masthead.segment {
-        min-height: 350px;
-      }
-
-      .masthead h1.ui.header {
-        font-size: 2em;
-        margin-top: 1.5em;
-      }
-
-      .masthead h2 {
-        margin-top: 0.5em;
-        font-size: 1.5em;
-      }
-    }
   </style>
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   <link href="{% static 'css/glitch.scss' %}" />
@@ -103,44 +71,41 @@
   </script>
 </head>
 
-<!-- <body id="body" class="pushable" data-new-gr-c-s-check-loaded="14.991.0" data-gr-ext-installed=""
-  cz-shortcut-listen="true"> -->
 
 
 
 
-  {% comment %} ==== NAV CONTENT ==== {% endcomment %}
+
+{% comment %} ==== NAV CONTENT ==== {% endcomment %}
 
 
-  <!-- MAIN NAV MENU Contents -->
-  <div class="pusher">
-    <div id="masthead" class="ui inverted vertical masthead center aligned segment">
-      <div id="navbar" class="ui container">
-        <div class="ui large secondary inverted pointing menu">
-          <a class="toc item">
-            <i class="sidebar icon"></i>
-          </a>
-          <a href="{% url 'barcode' %}" id="logo-nav">
-            <i class="barcode icon"></i></a>
+<!-- MAIN NAV MENU Contents -->
 
-          <a href="/" class="item">Home</a>
+<div id="masthead" class="ui inverted vertical masthead center aligned segment">
+  <div id="navbar" class="ui container">
+    <div class="ui large secondary inverted pointing menu">
 
-          <div class="right item">
-            {% if user.is_authenticated%}
-            <a href="{% url 'logout' %}" id="logout-btn">Log out</a>
-            <a class= "ui inverted button" href="{% url 'profile' profile_id=profile.id %}" id="admin">ADMIN</a>
-            {% endif %}
+      <a href="{% url 'barcode' %}" id="logo-nav">
+        <i class="barcode icon"></i></a>
 
-          </div>
-        </div>
+      <a href="{% url 'home' %}" id="home">Home</a>
+
+      <div class="right item">
+        {% if user.is_authenticated%}
+        <a href="{% url 'logout' %}" id="logout-btn">Log out</a>
+        <a class="ui inverted button" href="{% url 'profile' profile_id=profile.id %}" id="admin">ADMIN</a>
+        {% endif %}
+
       </div>
-     
-
-      {% comment %} ===== BLOCK CONTENT ===== {% endcomment %}
-      {% block content %}
-      {% endblock %}
-
     </div>
+  </div>
+
+
+  {% comment %} ===== BLOCK CONTENT ===== {% endcomment %}
+  {% block content %}
+  {% endblock %}
+
+</div>
 </body>
 <script src="{% static 'scripts/app.js' %}"></script>
 

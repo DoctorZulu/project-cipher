@@ -6,16 +6,18 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from .models import Profile, User, Post
-from .forms import Post_Form
+from .forms import Post_Form, Guess_Form
 
 
 
 def email(request):
     return render(request, 'email.html')
 
-@login_required
 def home(request):
     return render(request, 'home.html')
+
+def success(request):
+    return render(request, 'success.html')
 
 def logout(request):
     auth.logout(request)
@@ -140,4 +142,17 @@ def user_edit(request, profile_id):
     else:
         print("TEST")
     return redirect('profile', profile_id=profile_id)
+
+def guess_handle(request):
+    form = Guess_Form()
+    if request.method=='POST':
+        form = Guess_Form(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            guess = cd.get('guess')
+            guess.lower()
+            if guess == "test":
+                return redirect('success')
+            else:
+                return redirect('home')
 
