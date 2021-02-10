@@ -23,9 +23,34 @@ $(spans).hide().appendTo('.css-typing').each(function (i) {
   }, 100);
 });
 
+var str1 = '"Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light. Though wise men at their end know dark is right, Because their words had forked no lightning they Do not go gentle into that good night. Good men, the last wave by, crying how bright Their frail deeds might have danced in a green bay, Rage, rage against the dying of the light. Wild men who caught and sang the sun in flight, And learn, too late, they grieved it on its way, Do not go gentle into that good night. Grave men, near death, who see with blinding sight Blind eyes could blaze like meteors and be gay, Rage, rage against the dying of the light. And you, my father, there on the sad height, Curse, bless, me now with your fierce tears, I pray. Do not go gentle into that good night. Rage, rage against the dying of the light"'
+
+var spans = '<span class="text">' + str1.split('').join('</span><span class="text">') + '</span>';
+$(spans).hide().appendTo('.css-typing1').each(function (i) {
+  $(this).delay(90 * i).css({
+    display: 'inline',
+    opacity: 0
+  }).animate({
+    opacity: 1
+  }, 100);
+});
+
+var str2 = "Aren't you a smart cookie? You've made it this far, but I'm having too much fun. You complete me.... I think I'll hang on to this website a little longer. P.S. thanks for giving me your admin credentials earlier. Those should come in handy."
+
+var spans = '<span class="text">' + str2.split('').join('</span><span class="text">') + '</span>';
+$(spans).hide().appendTo('.css-typing2').each(function (i) {
+  $(this).delay(90 * i).css({
+    display: 'inline',
+    opacity: 0
+  }).animate({
+    opacity: 1
+  }, 100);
+});
+
+
 /* Inspired by Julius Caesar and article/examples by Prashant Yadav on Learersbucket.com/examples/algorithms/caesar-cipher-in-javascript */
 
-const caesarShift = function (str, shift) {
+let caesarShift = function (str, shift) {
 
   if (shift < 0) {
     return caesarShift(str, shift + 26);
@@ -34,7 +59,7 @@ const caesarShift = function (str, shift) {
 
   let output = "";
   for (let i = 0; i < str.length; i++) {
-    const c = str[i];
+    let c = str[i];
     /* Checking for letters */
     if (c.match(/[a-z]/i)) {
       /* checking character code for upper/lower */

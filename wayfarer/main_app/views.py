@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 
 from .models import Profile, User, Post
 from .forms import Post_Form, Guess_Form
@@ -19,6 +20,11 @@ def home(request):
 def success(request):
     return render(request, 'success.html')
 
+def abyss(request):
+    return render(request, 'abyss.html')
+def fin(request):
+    return render(request, 'fin.html')
+
 def logout(request):
     auth.logout(request)
     return redirect('email')
@@ -29,6 +35,9 @@ def textscroll(request):
 
 def barcode(request):
     return render(request, 'clues/barcode.html')
+
+def barcode1(request):
+    return render(request, 'clues/barcode1.html')
 
 def login(request):
     if request.method == 'POST':
@@ -150,9 +159,11 @@ def guess_handle(request):
         if form.is_valid():
             cd = form.cleaned_data
             guess = cd.get('guess')
-            guess.lower()
-            if guess == "test":
+            guess = guess.lower()
+            if guess == "dhyhukwlhjl":
                 return redirect('success')
+            elif guess == "villanelle":
+                return redirect('abyss')
             else:
-                return redirect('home')
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

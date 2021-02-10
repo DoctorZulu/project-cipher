@@ -22,9 +22,16 @@ def add_profile(request):
         }
         
 def add_posts(request):
-    posts = Post.objects.all()
-    return{
-        'posts' : posts
-    }
+    if request.user.is_authenticated:
+        posts = Post.objects.filter(user=request.user)
+        post_count = posts.count()
+        return{
+            'user_posts' : posts,
+            'post_count' : post_count
+        }
+    else:
+        return{
+            
+        }
 
 

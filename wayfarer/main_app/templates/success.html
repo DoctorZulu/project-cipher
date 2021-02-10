@@ -1,14 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div>
+<div class="ui text container">
     <div class="ui two column centered grid">
-        <img id="skeletor" src="../static/media/Skeletor.gif">
+        <a href="{% url 'barcode1' %}">
 
         <div class="typewritercontainer">
-            <div class="css-typing"></div>
+            <div class="css-typing1"></div>
         </div>
     </div>
+    </a>
+    </div>
+
+    <div class="guess">
+        <form action="{% url 'guess_handle' %}" method="POST" id="home-guess">
+            {% csrf_token %}
+            <div class="field guess-box">
+                <label>Passcode</label>
+                <input type="text" placeholder="Passcode" name="guess" required />
+              </div>
+            <button class="ui button" type="submit">Submit</button>
+        </form>
     </div>
     
     {% endblock %}

@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="ui hidden section divider"></div>
 <div id="container-box" class="ui center aligned stackable grid container">
-  <div id="left-box" class="four wide computer three wide tablet six wide mobile column profile">
+  <div id="left-box" class="four wide computer three wide tablet six wide mobile column profile ui card raised segment">
 
-
+<div class="content">
     <h3 class="ui center aligned header profile">{{ profile.user.first_name}} {{profile.user.last_name}}</h3>
+  </div>
 
 
 
-
-    {% comment %} User info {% endcomment %}
+    <div class="description">
     <p>Date Joined: {{ profile.user.date_joined }}</p>
     <p> Email: {{ profile.user.email }}</p>
+  </div>
+  <div class="ui hidden section divider"></div>
     <a id="edit_modal" class="ui inverted button">Edit User</a>
 
   </div>
@@ -24,13 +26,15 @@
 <div id="right-box" class="nine wide computer nine wide tablet six wide mobile column">
   <h3 class="ui center aligned header">Posts</h3>
   <a id="post_modal" class="ui inverted button">Add Post</a>
-  {% for post in posts %}
-  <div class="ui card">
+  <div class="ui text container">
+  {% for post in user_posts %}
+  <div class="ui card raised segment">
     <div class="content">
       {% if user.id == post.user.id %}
       <i id="{{post.id}}" class="right floated far fa-window-close delete_modal"></i>
       {% endif %}
       <div class="header">
+        <h3>{{post.title}}</h3>
       </div>
       <div class="description">
         <p>{{ post.body }}</p>
@@ -42,35 +46,7 @@
     </div>
   </div>
 
-  {% comment %} EDIT MODAL {% endcomment %}
-  <div class="ui modal edit">
-    <i class="close icon"></i>
-    <div class="header">New Post</div>
-    <div class="content">
-      <form method="POST" action="{% url 'user_edit' profile_id=profile.id %}">
-        {% csrf_token %} {% comment %} NEW SEMANTIC FORM {% endcomment %}
-        <div class="ui equal width form error">
-          <div class="field">
-            <label>First Name</label>
-            <input type="text" placeholder="First Name" name="first_name" required />
-          </div>
-          <div class="field">
-            <label>Last Name</label>
-            <input type="text" placeholder="Last Name" name="last_name" required />
-          </div>
-        </div>
-        {% if error_message %}
-        <div class="ui error message">
-          <div class="header">Action Forbidden</div>
-          <p>{{error_message}}</p>
-        </div>
-        {% endif %}
-        <div id="edit_user" class="actions">
-          <input type="submit" class="ui inverted button" value="Edit User" />
-        </div>
-      </form>
-    </div>
-  </div>
+
 
   {% comment %} DELETE MODAL {% endcomment %}
   <div id="modal-{{ post.id }}" class="ui modal delete">
@@ -87,6 +63,36 @@
   {% endfor %}
 </div>
 </div>
+</div>
+</div>
+{% comment %} EDIT MODAL {% endcomment %}
+<div class="ui modal edit">
+  <i class="close icon"></i>
+  <div class="header">Edit User</div>
+  <div class="content">
+    <form method="POST" action="{% url 'user_edit' profile_id=profile.id %}">
+      {% csrf_token %} {% comment %} NEW SEMANTIC FORM {% endcomment %}
+      <div class="ui equal width form error">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" placeholder="First Name" name="first_name" required />
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last Name" name="last_name" required />
+        </div>
+      </div>
+      {% if error_message %}
+      <div class="ui error message">
+        <div class="header">Action Forbidden</div>
+        <p>{{error_message}}</p>
+      </div>
+      {% endif %}
+      <div id="edit_user" class="actions">
+        <input type="submit" class="ui inverted button" value="Edit User" />
+      </div>
+    </form>
+  </div>
 </div>
 
 {% comment %} POST MODAL {% endcomment %}
