@@ -233,7 +233,9 @@ body{
 
 }
 
-
+.description {
+  color: #0D0D0D;
+}
 
 #containerneon {
   width: 500px;
@@ -242,6 +244,7 @@ body{
 
 /*Neon*/
 .neon {
+  font-family: Monoton;
   text-align: center;
   font-size: 7em;
   margin: 20px 0 20px 0;

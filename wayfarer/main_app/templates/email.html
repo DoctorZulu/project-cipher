@@ -21,7 +21,8 @@
         crossorigin="anonymous" />
 
 
-    <link rel="stylesheet" type="text/css" href="main_app/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css" />
+
 
     {% comment %} jQuery js {% endcomment %}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -65,17 +66,42 @@
 <body>
 
 
-    <div class="ui negative message transition">
+
+      <div class="ui text container">
+
+
+    <div class="ui negative big message transition text container">
         <i class="close icon"></i>
         <div class="header">
             Importance: HIGH
         </div>
-        <p>User, we have a huge issue! We think Susan in HR clicked another phishing email. We have lost complete access
+        <p>Dev Team, we have a huge issue! We think Susan in HR clicked another phishing email. We have lost complete access
             to our website, log into the admin network ASAP. Keep notes in your admin profile so HQ can follow along with your progress. 
             Share your admin profile with other employees, work together and crack the codes. Trust no one, and keep your personal information secure. 
-            Well, what are you waiting for get our website back!
+            Well, what are you waiting for? Get our website back!
         </p>
     </div>
+    <div class="ui vertical menu">
+        <a class="active teal item">
+          Inbox
+          <div class="ui teal left pointing label">1</div>
+        </a>
+        <a class="item">
+          Spam
+          <div class="ui label">0</div>
+        </a>
+        <div class="item">
+          <div class="ui transparent icon input">
+            <input type="text" placeholder="Search mail...">
+            <i class="search icon"></i>
+          </div>
+        </div>
+      </div>
+      
+        <button class="ui primary basic button" id="login_modal">Login</button>
+        <button class="ui secondary basic button" id="signup_modal">Sign Up</button>
+    
+</div>
 
     {% comment %} Login Modal {% endcomment %}
     <div class="ui modal login"> <i class="close icon"></i>
@@ -101,17 +127,14 @@
                     <p>{{error_message}}</p>
                 </div>
                 {% endif %}
-                <div class="actions">
+                <div class="actions ui text container" >
                     <input type="submit" class="ui button" value="Login" />
                     <input type="hidden" name="next" value="{{ next }}" />
                 </div>
             </form>
         </div>
     </div>
-    <div class="buttoncontainer">
-        <button class="ui primary basic button" id="login_modal">Login</button>
-        <button class="ui secondary basic button" id="signup_modal">Sign Up</button>
-    </div>
+
 
     <div class="ui modal signup"> <i class="close icon"></i>
         <div class="header">Sign Up</div>
