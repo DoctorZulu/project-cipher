@@ -16,8 +16,11 @@ Project-Cipher
 2. PostgreSQL
 3. Python
 4. Semantic UI
+5. JQuery
+6. Javascript
+7. CSS
 
-####--Aux site(s)
+####--Aux site(s) Temp Iced
 1. Node
 2. Express
 3. Javascript
