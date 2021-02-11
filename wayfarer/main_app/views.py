@@ -13,29 +13,30 @@ from .forms import Post_Form, Guess_Form
 
 def email(request):
     return render(request, 'email.html')
-
+@login_required
 def home(request):
     return render(request, 'home.html')
-
+@login_required
 def success(request):
     return render(request, 'success.html')
-
+@login_required
 def abyss(request):
     return render(request, 'abyss.html')
+@login_required    
 def fin(request):
     return render(request, 'fin.html')
-
+@login_required
 def logout(request):
     auth.logout(request)
     return redirect('email')
 
-
+@login_required
 def textscroll(request):
     return render(request, 'clues/textscroll.html')
-
+@login_required
 def barcode(request):
     return render(request, 'clues/barcode.html')
-
+@login_required
 def barcode1(request):
     return render(request, 'clues/barcode1.html')
 
@@ -53,13 +54,10 @@ def login(request):
             return redirect('home')
         else:
             context = {'error':'Invalid Credentials'}
-            return render(request, 'home.html', context)
+            return render(request, 'email.html', context)
     else:
         return render(request, 'home.html')
 
-def logout(request):
-    auth.logout(request)
-    return redirect('email')
 
 # handles signup modal functionality POST request
 def signup(request):
@@ -100,6 +98,7 @@ def signup(request):
         return render(request, 'home.html')
 
 # Route to handle creation of profile posts
+@login_required
 def post_create(request, profile_id):
     success_message = ''
     if request.method == 'POST': 
@@ -115,17 +114,7 @@ def post_create(request, profile_id):
     return render(request,'profile', context)
 
 
-
-def post_edit(request, post_id):
-    post = Post.objects.get(id=post_id)
-    if request.method == 'POST':
-        post.title = request.POST['title']
-        post.body = request.POST['body']
-        post.save()
-    else:
-        print("Error")
-    return redirect('profile/show.html', profile_id=profile.id)
-
+@login_required
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
     return redirect('home')
@@ -134,14 +123,14 @@ def post_delete(request, post_id):
 #    nextvalue = request.GET.get('next')
 #    Post.objects.get(id=post_id).delete()
 #    return redirect(nextvalue) 
-
+@login_required
 def profile(request, profile_id):
     #found_profile = Profile.objects.get(id=user_id)
     profile = Profile.objects.get(id=profile_id)
     context = {'profile': profile}
     return render(request, 'profile/show.html', context)
 
-
+@login_required
 def user_edit(request, profile_id):
     user = User.objects.get(id=request.user.id)
     if request.method == 'POST':
@@ -151,7 +140,7 @@ def user_edit(request, profile_id):
     else:
         print("TEST")
     return redirect('profile', profile_id=profile_id)
-
+@login_required
 def guess_handle(request):
     form = Guess_Form()
     if request.method=='POST':

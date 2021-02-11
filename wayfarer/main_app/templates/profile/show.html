@@ -55,7 +55,7 @@
       Are you sure you want to delete: {{post.title}}?
     </div>
     <div class="content">
-      <a href="{% url 'post_delete' post_id=post.id %}?next={{next}}" class="ui inverted button">Confirm Delete</a>
+      <a href="{% url 'post_delete' post_id=post.id %}" class="ui inverted button">Confirm Delete</a>
       <input type="hidden" name="next" value="{{ next }}" />
     </div>
   </div>
